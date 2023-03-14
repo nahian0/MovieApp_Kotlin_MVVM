@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/tv_title"
@@ -44,7 +44,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="335dp">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/textView4"
@@ -57,7 +57,7 @@
 
                 <TextView
                     android:id="@+id/textView2"
-                    android:layout_width="157dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="255dp"
@@ -67,8 +67,15 @@
                     tools:textStyle="bold" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/Now_Showing_RecycleView"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="60dp"
+                    android:nestedScrollingEnabled="false"
+                    android:orientation="horizontal"
+                    tools:layout_margin="30dp"
+                    tools:listitem="@layout/now_showing_item" />
             </RelativeLayout>
 
             <RelativeLayout
