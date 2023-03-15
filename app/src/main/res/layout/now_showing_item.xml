@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="show"
-            type="com.bdjobsniloy.movieapp.model.NowShowing.Movie" />
+            name="nowShowing"
+            type="com.example.movieappnahian.model.NowShowingModel.Result" />
     </data>
 
     <RelativeLayout
@@ -26,17 +26,18 @@
                 android:layout_height="250dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitXY"
+                imageFromUrl="@{nowShowing.posterPath}"
                 android:src="@drawable/loading"
-                app:setImageUrl="@{show.poster_path}" />
+              />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:text="@{show.title}"
+                android:text="@{nowShowing.title}"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 tools:text="Now Showing" />
 
@@ -61,7 +62,7 @@
                     android:layout_marginTop="2dp"
                     android:textColor="#555"
                     android:textSize="16sp"
-                    app:setRating="@{show.vote_average}"
+                    android:text="@{String.valueOf(nowShowing.voteAverage)+`/10`}"
                     tools:text="9.1/10 IMDb" />
 
             </LinearLayout>

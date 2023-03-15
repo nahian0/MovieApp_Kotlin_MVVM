@@ -15,7 +15,7 @@ interface NowShowingApiService {
 }
 
 
-object NetworkService {
+object NowShowingObject {
 
     val nowShowingApiService: NowShowingApiService by lazy {
         retrofit.create(NowShowingApiService::class.java)
