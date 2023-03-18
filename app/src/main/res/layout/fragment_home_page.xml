@@ -50,7 +50,8 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="368dp">
+                    android:layout_height="368dp"
+                    android:layout_marginBottom="20dp">
 
                     <TextView
                         android:id="@+id/textView4"
@@ -74,21 +75,28 @@
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/Now_Showing_RecycleView"
-                        android:layout_width="369dp"
+                        android:layout_width="381dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
-                        android:layout_marginTop="60dp"
+                        android:layout_marginTop="31dp"
                         android:nestedScrollingEnabled="false"
                         android:orientation="horizontal"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         tools:layout_margin="30dp"
-                        tools:listitem="@layout/now_showing_item" />
+                        tools:listitem="@layout/now_showing_layout" />
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="396dp">
 
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/Popular_Movies_RecyleView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:nestedScrollingEnabled="true"
+                        android:orientation="vertical"
+                        tools:listitem="@layout/popular_movies_layout" />
                 </RelativeLayout>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>

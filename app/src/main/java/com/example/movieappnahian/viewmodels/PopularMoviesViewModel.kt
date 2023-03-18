@@ -12,7 +12,7 @@ class PopularMoviesViewModel : ViewModel() {
    private val repository = PopularMovieRepos()
     val popularmovieslivedata: MutableLiveData<PopularMovieModel> = MutableLiveData()
 
-    fun getNowShowingMovie(page:Int){
+    fun getPopularMovie(page:Int){
         viewModelScope.launch {
             try {
                 popularmovieslivedata.value = repository.getPopularMovies(page)
