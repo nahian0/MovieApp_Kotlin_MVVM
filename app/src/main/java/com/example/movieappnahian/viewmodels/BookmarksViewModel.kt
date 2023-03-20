@@ -1,7 +1,6 @@
 package com.example.movieappnahian.viewmodels
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -37,7 +36,7 @@ class BookmarksViewModel(application: Application): AndroidViewModel(application
              repository.getMovieByID(id)
                 isBookmarkedLiveData.value = repository.bookmarkModel != null
 
-                Log.e("isBookmarked",isBookmarkedLiveData.value.toString())
+                //Log.e("isBookmarked",isBookmarkedLiveData.value.toString())
             }
             catch (e:Exception){
 

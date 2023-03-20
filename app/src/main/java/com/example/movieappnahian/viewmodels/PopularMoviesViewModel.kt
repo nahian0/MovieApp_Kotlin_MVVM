@@ -16,7 +16,7 @@ class PopularMoviesViewModel : ViewModel() {
             try {
                 popularmovieslivedata.value = repository.getPopularMovies(page)
 
-//                Log.e("MovieViewModel", repository.getNowShowingMovie(page).toString())
+//
             }catch (e: Exception) {
 
             }

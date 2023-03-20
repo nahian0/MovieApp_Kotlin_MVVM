@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                         binding.drawerLayout.closeDrawer(binding.navView)
                     }else{
                         binding.drawerLayout.closeDrawer(binding.navView)
-                        navHostFragment.findNavController().popBackStack()
+                        navHostFragment.findNavController().navigate(R.id.action_bookmarkFragment_to_homePageFragment)
                     }
 
                     true

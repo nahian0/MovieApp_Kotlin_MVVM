@@ -1,7 +1,6 @@
 package com.example.movieappnahian
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,7 +40,7 @@ class BookmarkFragment : Fragment() {
 
         bookmarksViewModel.getAllmovies().observe(requireActivity()) {movieList->
             adapterBookmark.submitList(movieList)
-            Log.e("title", "onCreateView: "+movieList.get(0).title )
+            //Log.e("title", "onCreateView: "+movieList.get(0).title )
         }
 
         // Inflate the layout for this fragment

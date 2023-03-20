@@ -77,7 +77,7 @@ class HomePageFragment : Fragment() {
 
         }
 
-        genreviewmodel.getGenresById(18)
+        genreviewmodel.getGenresById(10749)
         genreviewmodel.getGenresLiveData.observe(viewLifecycleOwner){
             Log.e("fadsssssssssssssssssssssssssssssssssssssssssssssssss",  it.name)
 
@@ -89,7 +89,7 @@ class HomePageFragment : Fragment() {
         nowshowingviewmodel.nowshowinglivedata.observe(viewLifecycleOwner){
 
            M->
-            Log.e("MovieViewModel",  M.results.toString())
+            //Log.e("MovieViewModel",  M.results.toString())
 
             adapterNowShowing.submitList(M.results)
 

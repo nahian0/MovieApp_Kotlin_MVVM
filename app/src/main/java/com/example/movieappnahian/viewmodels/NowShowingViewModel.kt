@@ -16,7 +16,7 @@ class NowShowingViewModel : ViewModel() {
             try {
                 nowshowinglivedata.value = repository.getNowShowingMovie(page)
 
-//                Log.e("MovieViewModel", repository.getNowShowingMovie(page).toString())
+//
             }catch (e: Exception) {
 
             }
