@@ -23,7 +23,7 @@ abstract class MovieDataBase : RoomDatabase(){
                     db = Room.databaseBuilder(
                         context,
                         MovieDataBase::class.java,
-                        "movies"
+                        "movie_database"
                     ).build()
                 }
 

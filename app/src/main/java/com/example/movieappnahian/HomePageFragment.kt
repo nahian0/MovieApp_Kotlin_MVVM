@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movieappnahian.adapters.NowShowingAdapter
 import com.example.movieappnahian.adapters.PopularMoviesAdapter
 import com.example.movieappnahian.databinding.FragmentHomePageBinding
+import com.example.movieappnahian.entities.Genre
 import com.example.movieappnahian.model.NowShowingModel
 import com.example.movieappnahian.model.PopularMovieModel
 import com.example.movieappnahian.viewmodels.GenresViewModel
@@ -58,7 +59,31 @@ class HomePageFragment : Fragment() {
         binding.NowShowingRecycleView.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false)
         binding.NowShowingRecycleView.adapter =adapterNowShowing
         nowshowingviewmodel.getNowShowingMovie(pagenumberNowshowing)
-        //genreviewmodel.getGenres()
+        genreviewmodel.getGenres()
+
+        genreviewmodel.genreLiveData.observe(viewLifecycleOwner){
+            G->
+            Log.e("MovieViewModel",  G.genres.toString())
+           for (i in 0..G.genres.size){
+
+               genreviewmodel.insertGenres(
+                   Genre(
+                       genre_id =G.genres[i].id,
+                       name = G.genres[i].name
+
+                   )
+               )
+           }
+
+        }
+
+        genreviewmodel.getGenresById(18)
+        genreviewmodel.getGenresLiveData.observe(viewLifecycleOwner){
+            Log.e("fadsssssssssssssssssssssssssssssssssssssssssssssssss",  it.name)
+
+        }
+
+
 
 
         nowshowingviewmodel.nowshowinglivedata.observe(viewLifecycleOwner){

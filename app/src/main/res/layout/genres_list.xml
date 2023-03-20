@@ -2,6 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+        <variable
+            name="genre"
+            type="com.example.movieappnahian.entities.Genre" />
 
     </data>
 
@@ -16,7 +19,7 @@
             android:layout_height="37dp"
             android:layout_marginRight="10dp"
             android:drawablePadding="10dp"
-            android:text="genres"
+            android:text="@{genre.name}"
             android:textAlignment="center"
             android:textSize="16sp" />
     </LinearLayout>

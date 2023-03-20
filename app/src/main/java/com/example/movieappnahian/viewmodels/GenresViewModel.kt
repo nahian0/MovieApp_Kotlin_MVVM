@@ -2,7 +2,6 @@ package com.example.movieappnahian.viewmodels
 
 import GenreModel
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -25,6 +24,10 @@ class GenresViewModel(application: Application):AndroidViewModel(application) {
 
    val genreLiveData: MutableLiveData<GenreModel> = MutableLiveData()
 
+    val getGenresLiveData: MutableLiveData<Genre> = MutableLiveData()
+
+
+
     fun getGenres(){
         viewModelScope.launch {
             try {
@@ -43,7 +46,23 @@ class GenresViewModel(application: Application):AndroidViewModel(application) {
             try {
                 repository.insertGenres(g)
 
-                Log.e("MovieViewModel", repository.getGenres().toString())
+               // Log.e("MovieViewModel", repository.getGenres().toString())
+            }catch (e: Exception) {
+
+            }
+        }
+
+
+    }
+
+
+    fun getGenresById(id: Int){
+
+        viewModelScope.launch {
+            try {
+                getGenresLiveData.value=   repository.getGenreByID(id)
+
+               // Log.e("MovieViewModel", repository.getGenres().toString())
             }catch (e: Exception) {
 
             }
