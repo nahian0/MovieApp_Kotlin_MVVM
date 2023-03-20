@@ -14,7 +14,7 @@
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="511dp"
+            android:layout_width="match_parent"
             android:layout_height="249dp"
             android:scaleType="fitXY"
             android:src="@drawable/loading"
@@ -25,18 +25,19 @@
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="42dp"
             android:layout_marginTop="250dp"
             android:orientation="horizontal"
-            app:layout_constraintTop_toTopOf="@+id/imageView5"
-            tools:layout_editor_absoluteX="-16dp">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView5">
 
             <TextView
                 android:id="@+id/movieTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Movie Name"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 tools:textStyle="bold" />
@@ -52,7 +53,7 @@
 
         <LinearLayout
             android:id="@+id/linearLayout4"
-            android:layout_width="411dp"
+            android:layout_width="match_parent"
             android:layout_height="21dp"
             android:layout_marginTop="44dp"
             android:layout_weight="1"
@@ -68,6 +69,7 @@
                 android:layout_weight="1"
                 app:srcCompat="@drawable/star_icon" />
 
+
             <TextView
                 android:id="@+id/movieRating"
                 android:layout_width="40dp"
@@ -76,7 +78,6 @@
 
                 android:textSize="20sp"
                 tools:text="8" />
-
 
             <TextView
                 android:id="@+id/textView9"
@@ -111,6 +112,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
@@ -127,6 +129,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="50sp"
                     android:text="1h 50min"
+                    android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     tools:textStyle="bold" />
@@ -135,6 +138,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_marginRight="60dp"
                 android:orientation="vertical">
 
@@ -150,6 +154,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="English"
+                    android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     tools:textStyle="bold" />
@@ -158,6 +163,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
@@ -173,6 +179,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="PG-13"
+                    android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     tools:textStyle="bold" />
@@ -189,9 +196,10 @@
             android:text="Description"
             android:textColor="@color/black"
             android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/movieDescription"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.035"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
             app:layout_constraintVertical_bias="0.523"
@@ -200,8 +208,8 @@
 
         <TextView
             android:id="@+id/movieDescription"
-            android:layout_width="380dp"
-            android:layout_height="217dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="56dp"
             android:text="Description "
             app:layout_constraintBottom_toBottomOf="parent"

@@ -15,6 +15,7 @@ import com.example.movieappnahian.adapters.PopularMoviesAdapter
 import com.example.movieappnahian.databinding.FragmentHomePageBinding
 import com.example.movieappnahian.model.NowShowingModel
 import com.example.movieappnahian.model.PopularMovieModel
+import com.example.movieappnahian.viewmodels.GenresViewModel
 import com.example.movieappnahian.viewmodels.NowShowingViewModel
 import com.example.movieappnahian.viewmodels.PopularMoviesViewModel
 
@@ -29,9 +30,11 @@ class HomePageFragment : Fragment() {
     //view models
     private val nowshowingviewmodel: NowShowingViewModel by activityViewModels()
     private val popularmovievwmodel: PopularMoviesViewModel by activityViewModels()
+    private val genreviewmodel: GenresViewModel by activityViewModels()
     //data lists
     var nowShowingMovieList = mutableListOf<NowShowingModel.Result>()
     var popularMovieList = mutableListOf<PopularMovieModel.Result>()
+    var genreList = mutableListOf<GenresViewModel>()
 
 
     override fun onCreateView(
@@ -42,19 +45,21 @@ class HomePageFragment : Fragment() {
 
         val adapterNowShowing = NowShowingAdapter {binding,nowShowingMovie,position->
              binding.nowShowingLayout.setOnClickListener {
-                 findNavController().navigate(R.id.action_homePageFragment_to_detailsFragment,args= bundleOf("movieid" to nowShowingMovie.id,"moviename" to nowShowingMovie.title,"backdrobpath" to nowShowingMovie.backdropPath ,"voteaverage" to nowShowingMovie.voteAverage, "description" to nowShowingMovie.overview))
+                 findNavController().navigate(R.id.action_homePageFragment_to_detailsFragment,args= bundleOf("movieId" to nowShowingMovie.id,"movieTitle" to nowShowingMovie.title,"posterPath" to nowShowingMovie.posterPath,"movieDetails" to nowShowingMovie.overview,"genrelist" to nowShowingMovie.genreIds,"backdropath" to nowShowingMovie.backdropPath,"voteAverage" to nowShowingMovie.voteAverage))
              }
 
         }
         val adapeterPopularMovies =PopularMoviesAdapter{binding,popularmoviemodel,position->
             binding.popularMovieLayout.setOnClickListener{
-                findNavController().navigate(R.id.action_homePageFragment_to_detailsFragment, args =bundleOf("movieid" to popularmoviemodel.id,"moviename" to popularmoviemodel.title,"backdrobpath" to popularmoviemodel.backdropPath ,"voteaverage" to popularmoviemodel.voteAverage, "description" to popularmoviemodel.overview) )
+                findNavController().navigate(R.id.action_homePageFragment_to_detailsFragment, args =bundleOf("movieId" to popularmoviemodel.id,"movieTitle" to popularmoviemodel.title,"posterPath" to popularmoviemodel.posterPath,"movieDetails" to popularmoviemodel.overview,"genrelist" to popularmoviemodel.genreIds,"backdropath" to popularmoviemodel.backdropPath,"voteAverage" to popularmoviemodel.voteAverage))
             }
         }
       //Now showing movies
         binding.NowShowingRecycleView.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false)
         binding.NowShowingRecycleView.adapter =adapterNowShowing
         nowshowingviewmodel.getNowShowingMovie(pagenumberNowshowing)
+        //genreviewmodel.getGenres()
+
 
         nowshowingviewmodel.nowshowinglivedata.observe(viewLifecycleOwner){
 
@@ -76,6 +81,8 @@ class HomePageFragment : Fragment() {
             M->
             adapeterPopularMovies.submitList(M.results)
         }
+
+
 
 
 

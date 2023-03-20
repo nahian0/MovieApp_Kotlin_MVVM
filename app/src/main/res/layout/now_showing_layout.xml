@@ -23,7 +23,7 @@
 
             <ImageView
                 android:id="@+id/NowPlayingImage"
-                imageFromUrl="@{nowShowing.posterPath}"
+                imageFromUrl="@{nowShowing.posterPath }"
                 android:layout_width="188dp"
                 android:layout_height="250dp"
                 android:adjustViewBounds="true"
@@ -60,7 +60,7 @@
                     android:layout_height="30dp"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="2dp"
-                    android:text="@{String.valueOf(nowShowing.voteAverage)+`/10`}"
+                    android:text="@{String.valueOf(nowShowing.voteAverage)+`/10 IMDB`}"
                     android:textColor="#555"
                     android:textSize="16sp"
                     tools:text="9.1/10 IMDb" />

@@ -1,110 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
-        android:layout_width="414dp"
-        android:layout_height="177dp"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="0dp">
+    <data>
+        <variable
+            name="bookmark"
+            type="com.example.movieappnahian.entities.BookmarkModel" />
 
-        <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="67dp"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:layout_weight="3"
-            app:srcCompat="@drawable/loading"
-            tools:scaleType="fitXY" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_marginBottom="20dp"
+        android:layout_height="128dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="8"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:layout_weight="1"
-                android:text="Movie Name"
-                android:textSize="20sp"
-                tools:textColor="@color/black"
-                tools:textStyle="bold" />
+            <ImageView
+                android:id="@+id/imageView8"
+                imageFromUrl="@{bookmark.posterPath}"
+                android:layout_width="105dp"
+                android:layout_height="128dp"
+                android:layout_margin="5dp"
+                android:layout_weight="3"
+                app:srcCompat="@drawable/loading"
+                tools:scaleType="fitXY" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
+                android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/imageView10"
-                    android:layout_width="153dp"
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/star_icon" />
 
-                <TextView
-                    android:layout_width="47dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="@{bookMark.ratting}"
-                    android:textColor="@color/black"
-                    tools:text="7.5" />
+                    android:text="@{bookmark.title}"
+                    android:textSize="18sp"
+                    tools:text="Movie Name"
+                   android:textColor="@color/black"
+                    android:textStyle="bold"
+                    tools:textStyle="bold" />
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="/10 IMDb"
-                    android:textColor="@color/black" />
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/star_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="@{String.valueOf(bookmark.voteAverage)+`/10 IMDB`}"
+                        android:textColor="@color/black"
+                        tools:layout_weight="1"
+                        tools:text="7.5" />
+
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/genres_list" />
+
+                <LinearLayout
+                    android:layout_width="164dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/watch_icon" />
+
+                    <TextView
+                        android:id="@+id/textView20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="2 h 50 min"
+                        android:textColor="@color/black" />
+                </LinearLayout>
 
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <ImageView
+                android:id="@+id/delateIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="51dp"
                 android:layout_weight="1"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/genres_list" />
-
-            <LinearLayout
-                android:layout_width="164dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/imageView11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/watch_icon" />
-
-                <TextView
-                    android:id="@+id/textView20"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="2 h 50 min"
-                    android:textColor="@color/black" />
-            </LinearLayout>
+                app:srcCompat="@drawable/delate_icon" />
 
         </LinearLayout>
-
-        <ImageView
-            android:id="@+id/imageView9"
-            android:layout_width="wrap_content"
-            android:layout_height="51dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/delate_icon" />
-
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

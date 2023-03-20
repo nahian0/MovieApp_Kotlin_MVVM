@@ -5,10 +5,10 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.movieappnahian.daos.MovieDaos
-import com.example.movieappnahian.entities.Bookmark
+import com.example.movieappnahian.entities.BookmarkModel
 import com.example.movieappnahian.entities.Genre
 
-@Database(entities = [ Bookmark::class,Genre::class], version = 1)
+@Database(entities = [ BookmarkModel::class, Genre::class], version = 1)
 abstract class MovieDataBase : RoomDatabase(){
 
     abstract fun getDao() : MovieDaos
@@ -23,7 +23,7 @@ abstract class MovieDataBase : RoomDatabase(){
                     db = Room.databaseBuilder(
                         context,
                         MovieDataBase::class.java,
-                        "movie"
+                        "movies"
                     ).build()
                 }
 
