@@ -101,13 +101,30 @@
 
                 </LinearLayout>
 
-                <androidx.recyclerview.widget.RecyclerView
+             <!--   <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/GenresRecyclerView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/genres_list" />
+                    tools:listitem="@layout/genres_list" />-->
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/popularGanerRVID"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="3dp"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/popular_genrs_row_item" />
+
+                </HorizontalScrollView>
 
             </LinearLayout>
         </LinearLayout>

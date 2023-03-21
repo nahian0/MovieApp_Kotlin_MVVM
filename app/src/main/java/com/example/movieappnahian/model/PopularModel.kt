@@ -40,6 +40,7 @@ data class PopularMovieModel(
         @SerializedName("vote_average")
         val voteAverage: Double,
         @SerializedName("vote_count")
-        val voteCount: Int
+        val voteCount: Int,
+      //  var genresList: ArrayList<Genress>
     )
 }

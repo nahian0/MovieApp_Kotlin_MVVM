@@ -30,6 +30,9 @@ interface MovieDaos{
     @Query("select * from genre_table where genre_id = :genreId")
     suspend fun getGenreById(genreId: Int?) : Genre?
 
+    @Query("select * from genre_table where id = :id")
+     fun getGenreDataByID(id : Int) : LiveData<List<Genre>>
+
 
 
 

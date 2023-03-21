@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.movieappnahian.databinding.PopularMoviesLayoutBinding
 import com.example.movieappnahian.model.PopularMovieModel
 
-class PopularMoviesAdapter(val callback:(PopularMoviesLayoutBinding,PopularMovieModel.Result,Int)->Unit) : ListAdapter<PopularMovieModel.Result, PopularMoviesAdapter.PopularMovieHolder>(
+class PopularMoviesAdapter(val callback : (movie : PopularMovieModel.Result,
+                                           binding : PopularMoviesLayoutBinding,value : Int) -> Unit) : ListAdapter<PopularMovieModel.Result, PopularMoviesAdapter.PopularMovieHolder>(
     MovieDiffUtil()
 ){
 
@@ -42,7 +43,13 @@ class PopularMoviesAdapter(val callback:(PopularMoviesLayoutBinding,PopularMovie
         val popularmoviemodel = getItem(position)
 
         holder.bind(popularmoviemodel)
-        callback(holder.binding,popularmoviemodel,position)
+       // callback(holder.binding,popularmoviemodel,position)
+
+        callback(popularmoviemodel,holder.binding,2)
+
+        holder.binding.popularMovieLayout.setOnClickListener {
+            callback(popularmoviemodel,holder.binding,1)
+        }
 
 
     }

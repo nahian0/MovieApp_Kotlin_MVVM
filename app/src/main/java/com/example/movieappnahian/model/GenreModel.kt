@@ -1,10 +1,10 @@
 import com.google.gson.annotations.SerializedName
 data class GenreModel(
     @SerializedName("genres")
-    val genres: List<Genre>
+    val genres: List<Genress>
 )
 
-data class Genre(
+data class Genress(
     @SerializedName("id")
     val id: Int,
     @SerializedName("name")

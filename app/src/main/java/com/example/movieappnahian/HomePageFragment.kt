@@ -1,10 +1,13 @@
 package com.example.movieappnahian
 
+import Genress
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -36,6 +39,7 @@ class HomePageFragment : Fragment() {
     var nowShowingMovieList = mutableListOf<NowShowingModel.Result>()
     var popularMovieList = mutableListOf<PopularMovieModel.Result>()
     var genreList = mutableListOf<GenresViewModel>()
+    var genresDataList  = ArrayList<Genress>()
 
 
     override fun onCreateView(
@@ -50,10 +54,49 @@ class HomePageFragment : Fragment() {
              }
 
         }
-        val adapeterPopularMovies =PopularMoviesAdapter{binding,popularmoviemodel,position->
+        /*val adapeterPopularMovies =PopularMoviesAdapter{binding,popularmoviemodel,position->
             binding.popularMovieLayout.setOnClickListener{
                 findNavController().navigate(R.id.action_homePageFragment_to_detailsFragment, args =bundleOf("movieId" to popularmoviemodel.id,"movieTitle" to popularmoviemodel.title,"posterPath" to popularmoviemodel.posterPath,"movieDetails" to popularmoviemodel.overview,"genrelist" to popularmoviemodel.genreIds,"backdropath" to popularmoviemodel.backdropPath,"voteAverage" to popularmoviemodel.voteAverage))
             }
+        }*/
+
+        val adapeterPopularMovies = PopularMoviesAdapter{movie,binding,value  ->
+            if(value==2){
+                Log.e("callback2", "onCreateView: insert" )
+                for(i in 0..movie.genreIds.size - 1){
+                    var genre_ids = movie.genreIds.get(i)
+                    genreviewmodel.getGenreDataByID(genre_ids).observe(viewLifecycleOwner){
+                        for(i in 0..it.size - 1){
+                            it.forEach{
+                                if(genre_ids==it.id){
+                                    val dynamicTextView = TextView(requireContext())
+                                    dynamicTextView.text = it.name
+                                    dynamicTextView.setBackgroundResource(R.drawable.genres_border)
+                                    val params = LinearLayout.LayoutParams(
+                                        LinearLayout.LayoutParams.WRAP_CONTENT,
+                                        LinearLayout.LayoutParams.WRAP_CONTENT)
+                                    params.setMargins(0, 10, 15, 5)
+
+                                    dynamicTextView.layoutParams = params
+                                    binding.popularGanerRVID.addView(dynamicTextView)
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+
+
+            }else if(value==1){
+                Log.e("callback", "onCreateView: insert" )
+                findNavController().navigate(R.id.action_homePageFragment_to_detailsFragment, args =bundleOf("movieId" to movie.id,"movieTitle" to movie.title,"posterPath" to movie.posterPath,"movieDetails" to movie.overview,"genrelist" to movie.genreIds,"backdropath" to movie.backdropPath,"voteAverage" to movie.voteAverage))
+
+            }
+
+
+
+
         }
       //Now showing movies
         binding.NowShowingRecycleView.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false)
@@ -79,7 +122,7 @@ class HomePageFragment : Fragment() {
 
         genreviewmodel.getGenresById(10749)
         genreviewmodel.getGenresLiveData.observe(viewLifecycleOwner){
-            Log.e("fadsssssssssssssssssssssssssssssssssssssssssssssssss",  it.name)
+           // Log.e("fadsssssssssssssssssssssssssssssssssssssssssssssssss",  it.name)
 
         }
 
@@ -102,8 +145,31 @@ class HomePageFragment : Fragment() {
         binding.PopularMoviesRecyleView.layoutManager =LinearLayoutManager(activity)
         binding.PopularMoviesRecyleView.adapter =adapeterPopularMovies
         popularmovievwmodel.getPopularMovie(pagenumberPopularMovies)
+
+
+
         popularmovievwmodel.popularmovieslivedata.observe(viewLifecycleOwner){
             M->
+
+          /*  M.results.forEach({
+                for(i in 0..it.genreIds.size-1 ){
+                    genreviewmodel.getGenresById(it.genreIds.get(i)).observe(requireActivity(),{G ->
+                        Log.e("genres", "onCreateView: "+G.name )
+                        //it.genresList.add(Genress(id=G.id, name = G.name))
+
+                    })
+
+
+
+                }
+                //Log.e("genresdfsaaaaaaaaaaaaaaaaaaaaaaaaaa", it.genresList.toString())
+            })*/
+
+
+           /* M.results[0].genresList =  genresDataList
+            Log.e("genres", genresDataList.size.toString())
+            Log.e("genres", M.results[0].genresList.size.toString())*/
+
             adapeterPopularMovies.submitList(M.results)
         }
 
