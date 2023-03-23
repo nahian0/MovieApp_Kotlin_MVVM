@@ -1,26 +1,23 @@
 package com.example.movieappnahian.viewmodels
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.movieappnahian.daos.MovieDaos
-import com.example.movieappnahian.db.MovieDataBase
 import com.example.movieappnahian.entities.BookmarkModel
 import com.example.movieappnahian.repos.BookmarksRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class BookmarksViewModel(application: Application): AndroidViewModel(application) {
 
-    var repository: BookmarksRepository
+@HiltViewModel
+class BookmarksViewModel @Inject constructor (private val repository: BookmarksRepository): ViewModel() {
 
     var isBookmarkedLiveData: MutableLiveData<Boolean> = MutableLiveData()
-      var dao: MovieDaos
-    init {
-        dao = MovieDataBase.getDB(application).getDao()
-        repository = BookmarksRepository(dao)
-    }
+
+
+
 
 
     fun insertBookMarks(bookmarkModel: BookmarkModel){

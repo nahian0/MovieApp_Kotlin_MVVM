@@ -22,8 +22,9 @@ import com.example.movieappnahian.model.PopularMovieModel
 import com.example.movieappnahian.viewmodels.GenresViewModel
 import com.example.movieappnahian.viewmodels.NowShowingViewModel
 import com.example.movieappnahian.viewmodels.PopularMoviesViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class HomePageFragment : Fragment() {
     private var pagenumberNowshowing = 1
     private  var pagenumberPopularMovies =1

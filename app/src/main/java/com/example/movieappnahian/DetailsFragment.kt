@@ -5,16 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import com.bumptech.glide.Glide
 import com.example.movieappnahian.databinding.FragmentDetailsBinding
 import com.example.movieappnahian.entities.BookmarkModel
 import com.example.movieappnahian.viewmodels.BookmarksViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class DetailsFragment : Fragment() {
     lateinit var  binding :FragmentDetailsBinding
-    private lateinit var bookmarksViewModel : BookmarksViewModel
+    private val bookmarksViewModel : BookmarksViewModel  by activityViewModels()
 
 
     override fun onCreateView(
@@ -23,7 +24,7 @@ class DetailsFragment : Fragment() {
     ): View? {
         binding = FragmentDetailsBinding.inflate(inflater,container,false)
 
-        bookmarksViewModel = ViewModelProvider(requireActivity()).get(BookmarksViewModel::class.java)
+        //bookmarksViewModel = ViewModelProvider(requireActivity()).get(BookmarksViewModel::class.java)
 
         var movietitle : String? = arguments?.getString("movieTitle")
         var movieId : Int? = arguments?.getInt("movieId",0)

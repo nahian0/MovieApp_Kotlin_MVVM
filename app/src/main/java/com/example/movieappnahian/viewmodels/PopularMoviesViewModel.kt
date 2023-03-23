@@ -5,10 +5,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.movieappnahian.model.PopularMovieModel
 import com.example.movieappnahian.repos.PopularMovieRepos
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class PopularMoviesViewModel : ViewModel() {
-   private val repository = PopularMovieRepos()
+@HiltViewModel
+class PopularMoviesViewModel @Inject constructor (private val repository:PopularMovieRepos ) : ViewModel() {
+
     val popularmovieslivedata: MutableLiveData<PopularMovieModel> = MutableLiveData()
 
     fun getPopularMovie(page:Int){

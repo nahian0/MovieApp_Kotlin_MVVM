@@ -4,14 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.movieappnahian.daos.MovieDaos
 import com.example.movieappnahian.entities.BookmarkModel
+import javax.inject.Inject
 
 
-class BookmarksRepository(private var dao:MovieDaos) {
+class BookmarksRepository@Inject constructor( private val dao: MovieDaos) {
     val bookmarkedList: MutableLiveData <List<BookmarkModel>> = MutableLiveData()
-
     var bookmarkModel: BookmarkModel? = null
-
-
 
     suspend fun insertBookMarks(bookmarkModel: BookmarkModel){
         try {

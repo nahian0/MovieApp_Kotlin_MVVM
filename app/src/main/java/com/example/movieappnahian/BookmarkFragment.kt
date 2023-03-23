@@ -5,16 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movieappnahian.adapters.BookmarkAdapter
 import com.example.movieappnahian.databinding.FragmentBookmarkBinding
 import com.example.movieappnahian.viewmodels.BookmarksViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class BookmarkFragment : Fragment() {
     lateinit var  binding : FragmentBookmarkBinding
-    private lateinit var bookmarksViewModel : BookmarksViewModel
+    private val bookmarksViewModel : BookmarksViewModel  by activityViewModels()
 
 
     override fun onCreateView(
@@ -24,7 +25,7 @@ class BookmarkFragment : Fragment() {
 
         binding =  FragmentBookmarkBinding.inflate(inflater,container,false)
 
-        bookmarksViewModel = ViewModelProvider(requireActivity()).get(BookmarksViewModel::class.java)
+       // bookmarksViewModel = ViewModelProvider(requireActivity()).get(BookmarksViewModel::class.java)
 
 
         val adapterBookmark = BookmarkAdapter{binding,bookmark,position->

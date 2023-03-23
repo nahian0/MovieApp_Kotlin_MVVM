@@ -1,27 +1,19 @@
 package com.example.movieappnahian.viewmodels
 
 import GenreModel
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.movieappnahian.daos.MovieDaos
-import com.example.movieappnahian.db.MovieDataBase
 import com.example.movieappnahian.entities.Genre
 import com.example.movieappnahian.repos.GenreRepos
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class GenresViewModel(application: Application):AndroidViewModel(application) {
+@HiltViewModel
 
-
-    private  var repository:GenreRepos
-
-    private  var dao: MovieDaos
-    init {
-        dao = MovieDataBase.getDB(application).getDao()
-       repository = GenreRepos(dao)
-    }
+class GenresViewModel@Inject constructor(private  val repository:GenreRepos) : ViewModel() {
 
    val genreLiveData: MutableLiveData<GenreModel> = MutableLiveData()
 
