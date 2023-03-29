@@ -4,6 +4,12 @@ Movie App is an Android application built with Kotlin that lets users browse and
 
 The app uses Room and SQLite database to store bookmarked movie information. Users can navigate to the bookmarks page using the navigation drawer from the homepage, where all the bookmarked movies are shown. Users can also delete any bookmarked movie by clicking on the delete button.
 
+## Architecture and Libraries
+
+The app uses the MVVM (Model-View-ViewModel) architecture pattern to structure the code. This pattern separates the app into three components: the view (UI), the viewmodel (business logic), and the model (data). This separation allows for better testing and maintainability.
+
+The app also uses dependency injection using the Hilt library. Hilt is a library that reduces the creation of unnecessary instances of classes, making the app more efficient and easier to maintain.
+
 ## Installation
 
 To install and run the app on your Android device, follow these steps:
