@@ -89,7 +89,7 @@
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/Now_Showing_RecycleView"
-                        android:layout_width="398dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="0dp"
