@@ -6,10 +6,10 @@ The app uses Room and SQLite database to store bookmarked movie information. Use
 
 
 <img src="screenshots/Screenshot_1694672779.png" alt="Screenshot 1" width="250" height="500" />
-<img src="screenshots/Screenshot_1694672786.png" alt="Screenshot 1" width="250" height="500" />
-<img src="screenshots/Screenshot_1694672789.png" alt="Screenshot 1" width="250" height="500" />
-<img src="screenshots/Screenshot_1694672796.png" alt="Screenshot 1" width="350" height="500" />
-<img src="screenshots/Screenshot_1694672832.png" alt="Screenshot 1" width="250" height="500" />
+<img src="screenshots/Screenshot_1694672786.png" alt="Screenshot 2" width="250" height="500" />
+<img src="screenshots/Screenshot_1694672789.png" alt="Screenshot 3" width="250" height="500" />
+<img src="screenshots/Screenshot_1694672796.png" alt="Screenshot 4" width="350" height="500" />
+<img src="screenshots/Screenshot_1694672832.png" alt="Screenshot 5" width="250" height="500" />
 
 
 ## Architecture and Libraries
