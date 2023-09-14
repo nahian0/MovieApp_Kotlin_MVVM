@@ -5,6 +5,9 @@ Movie App is an Android application built with Kotlin that lets users browse and
 The app uses Room and SQLite database to store bookmarked movie information. Users can navigate to the bookmarks page using the navigation drawer from the homepage, where all the bookmarked movies are shown. Users can also delete any bookmarked movie by clicking on the delete button.
 <img src="screenshots/Screenshot_1694672779.png" alt="Screenshot 1" width="350" height="600" />
 <img src="screenshots/Screenshot_1694672786.png" alt="Screenshot 1" width="350" height="600" />
+<img src="screenshots/Screenshot_1694672786.png" alt="Screenshot 1" width="350" height="600" />
+<img src="screenshots/Screenshot_1694672786.png" alt="Screenshot 1" width="350" height="600" />
+<img src="screenshots/Screenshot_1694672786.png" alt="Screenshot 1" width="350" height="600" />
 
 
 ## Architecture and Libraries
