@@ -30,9 +30,6 @@ To view your bookmarks, open the navigation drawer and select "Bookmarks". Here 
 
 If you want to contribute to this project, feel free to submit a pull request or report any issues on the GitHub repository page.
 
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for more details.
 
 ## Acknowledgements
 
@@ -40,4 +37,4 @@ The app uses the MovieDB API to fetch movie data. Special thanks to them for pro
 
 ## Contact
 
-If you have any questions or feedback, feel free to reach out to me at [your email or social media handle]. Thanks for using Movie App!
+If you have any questions or feedback, feel free to reach out to me at [nahianpathan12@gmail.com]. Thanks for using Movie App!
