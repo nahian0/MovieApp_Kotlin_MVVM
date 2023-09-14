@@ -5,11 +5,14 @@ Movie App is an Android application built with Kotlin that lets users browse and
 The app uses Room and SQLite database to store bookmarked movie information. Users can navigate to the bookmarks page using the navigation drawer from the homepage, where all the bookmarked movies are shown. Users can also delete any bookmarked movie by clicking on the delete button.
 
 
-<img src="screenshots/Screenshot_1694672779.png" alt="Screenshot 1" width="250" height="500" />
-<img src="screenshots/Screenshot_1694672786.png" alt="Screenshot 2" width="250" height="500" />
-<img src="screenshots/Screenshot_1694672789.png" alt="Screenshot 3" width="250" height="500" />
-<img src="screenshots/Screenshot_1694672796.png" alt="Screenshot 4" width="350" height="500" />
-<img src="screenshots/Screenshot_1694672832.png" alt="Screenshot 5" width="250" height="500" />
+<div style="display: flex; justify-content: space-between;">
+  <img src="screenshots/Screenshot_1694672779.png" alt="Screenshot 1" width="250" height="500" />
+  <img src="screenshots/Screenshot_1694672786.png" alt="Screenshot 2" width="250" height="500" />
+  <img src="screenshots/Screenshot_1694672789.png" alt="Screenshot 3" width="250" height="500" />
+  <img src="screenshots/Screenshot_1694672796.png" alt="Screenshot 4" width="350" height="500" />
+  <img src="screenshots/Screenshot_1694672832.png" alt="Screenshot 5" width="250" height="500" />
+</div>
+
 
 
 ## Architecture and Libraries
